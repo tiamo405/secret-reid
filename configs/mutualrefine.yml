@@ -1,0 +1,37 @@
+DATASETS:
+  SOURCE: "dukemtmc"
+  TARGET: "20220721_images_split_rotate"
+  DIR: "/mnt/nvme0n1/phuongnam/yolox/"
+# DATASETS:
+#   SOURCE: "dukemtmc"
+#   TARGET: "market1501"
+#   DIR: "/mnt/nvme0n1/datasets/reid/research_data/"
+
+OUTPUT_DIR: "log/dukemarket_nam_20220721_images_split_rotate/mutualrefine"
+
+GPU_Device: [1]
+
+MODE: "mutualrefine"
+
+CLUSTER:
+  REFINE_K: 0.5
+# CLUSTER:
+#   REFINE_K: 0.4
+
+INPUT:
+  REA:
+    ENABLED: True
+
+DATALOADER:
+  BATCH_SIZE: 16
+  ITERS: 400
+
+CHECKPOING:
+  REMAIN_CLASSIFIER: False
+  SAVE_STEP: [-1]
+  PRETRAIN_PATH: "log/duke2market_nam_20220721_images_split_rotate/pretrain/checkpoint_new.pth.tar"
+
+OPTIM:
+  SCHED: "single_step"
+  STEPS: [50]
+  EPOCHS: 50

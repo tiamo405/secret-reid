@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+
+
+            // train 
+            // "args": ["--config-file", "configs/pretrain.yml" ,
+            // "DATASETS.DIR", "/mnt/nvme0n1/datasets/reid/research_data/market1501/" ,
+            // "DATASETS.SOURCE", "dukemtmc",
+            // "DATASETS.TARGET", "market1501" ,
+            // "OUTPUT_DIR" ,"log/duke2market_nam/mutualrefine" ,
+            // "GPU_Device", "[0]",
+            // "MODE", "pretrain" ,
+            // "MODEL.ARCH" ,"resnet50",
+            // ]
+
+            // anno
+            "args" : ["--json_path", "/mnt/nvme0n1/datasets/fisheye/annotations/20220411_images.json",
+                        "--folder_image", "/mnt/nvme0n1/datasets/fisheye/20220411/20220411_images/",
+                    "--folder_save_rotate", "PMC_sup_20220411"]
+            
+        }
+    ]
+}

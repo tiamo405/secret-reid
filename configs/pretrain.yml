@@ -1,0 +1,30 @@
+DATASETS:
+  SOURCE: "dukemtmc"
+  TARGET: "market1501"
+  DIR: "/mnt/nvme0n1/datasets/reid/research_data/"
+
+OUTPUT_DIR: "log/duke2market_nam/pretrain"
+
+GPU_Device: [1]
+
+MODE: "pretrain"
+
+INPUT:
+  REA:
+    ENABLED: False
+
+MODEL:
+  PART_DETACH: True
+
+DATALOADER:
+  BATCH_SIZE: 16
+  ITERS: 100
+
+CHECKPOING:
+  REMAIN_CLASSIFIER: True
+  SAVE_STEP: [80]
+
+OPTIM:
+  SCHED: "warmupmultisteplr"
+  STEPS: [40,70]
+  EPOCHS: 80
